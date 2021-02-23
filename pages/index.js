@@ -13,6 +13,20 @@ const Home = () => {
       </Head>
 
       <main className={styles.main}>
+        <div className={styles.navbar}>
+          <div className={styles.navbarContent}>
+            {!auth?.user && (
+              <button onClick={e => auth.signinWithGithub()}>Sign in</button>
+            )}
+            {auth?.user && (
+              <>
+                <div className={styles.greetings}>{`Welcome ${auth?.user?.email}`}</div>
+                <button onClick={e => auth.signout()}>Sign out</button>
+              </>
+            )}
+          </div>
+        </div>
+
         <h1 className={styles.title}>
           Welcome to <a href="https://nextjs.org">Next.js!</a>
         </h1>
@@ -21,14 +35,6 @@ const Home = () => {
           Get started by editing{' '}
           <code className={styles.code}>pages/index.js</code>
         </p>
-
-        {!auth?.user && (
-          <button onClick={e => auth.signinWithGithub()}>Sign in</button>
-        )}
-        <div>{auth?.user?.email}</div>
-        {auth?.user && (
-          <button onClick={e => auth.signout()}>Sign out</button>
-        )}
       </main>
 
       <footer className={styles.footer}>
