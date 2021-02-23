@@ -22,8 +22,13 @@ const Home = () => {
           <code className={styles.code}>pages/index.js</code>
         </p>
 
-        <button onClick={e => auth.signinWithGithub()}>Sign in</button>
+        {!auth?.user && (
+          <button onClick={e => auth.signinWithGithub()}>Sign in</button>
+        )}
         <div>{auth?.user?.email}</div>
+        {auth?.user && (
+          <button onClick={e => auth.signout()}>Sign out</button>
+        )}
       </main>
 
       <footer className={styles.footer}>
