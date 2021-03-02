@@ -1,4 +1,6 @@
 import Head from 'next/head'
+import { Button, Heading, Text, Code } from '@chakra-ui/react'
+
 import { useAuth } from '../lib/auth'
 
 const Home = () => {
@@ -11,15 +13,15 @@ const Home = () => {
       </Head>
 
       <main>
-        <h1>Fast Feedback</h1>
-        <p>
-          Current user: <code>{auth.user ? auth.user.email : null}</code>
-        </p>
+        <Heading>Fast Feedback</Heading>
+        <Text>
+          Current user: <Code>{auth.user ? auth.user.email : null}</Code>
+        </Text>
 
         {auth.user ? (
-          <button onClick={e => auth.signout()}>Sign out</button>
+          <Button onClick={e => auth.signout()}>Sign out</Button>
         ) : (
-            <button onClick={e => auth.signinWithGithub()}>Sign in</button>
+            <Button onClick={e => auth.signinWithGithub()}>Sign in</Button>
           )}
       </main>
     </div>
