@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { Button, Heading, Text, Code } from '@chakra-ui/react'
+import { Button, Heading, Text, Code, Icon } from '@chakra-ui/react'
+import { DiReact } from "react-icons/di"
 
 import { useAuth } from '@/lib/auth'
 
@@ -14,6 +15,7 @@ const Home = () => {
 
       <main>
         <Heading>Fast Feedback</Heading>
+        <Icon as={DiReact} h={8} w={8} />
         <Text>
           Current user: <Code>{auth.user ? auth.user.email : null}</Code>
         </Text>
