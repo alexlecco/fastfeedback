@@ -27,7 +27,7 @@ const DashboardShell = ({ children }) => {
         py={4}
         px={8}
       >
-        <Stack direction="row" isInLine spacing={4} align="center">
+        <Stack direction="row" spacing={4} align="center">
           <Icon as={DiReact} />
           <Link>Feedback</Link>
           <Link>Sites</Link>
